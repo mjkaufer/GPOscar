@@ -1,7 +1,7 @@
 var gpaRangeColors = {//if gpa is >= this number, set as this color
 	3.0: "#2ecc71",//green
-	2.5: "#e67e22",//orange
-	2.0: "#f1c40f",//yellow
+	2.5: "#f1c40f",//yellow
+	2.0: "#e67e22",//orange
 	0: "#e74c3c",//red
 }
 

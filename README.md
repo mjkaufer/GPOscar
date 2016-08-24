@@ -14,3 +14,4 @@ Drag & drop the `GPOscar.crx` file into your extensions page in Chrome. I plan t
 	* Maybe fetch GPA from [irp](http://www.irp.gatech.edu/reports/grades_by_collegesmry.php), but it needs to be reverse engineered & it doesn't list GPAs, but rather As/Bs/Cs...
 * Better potential error handling
 * Unit tests?
+* Support for RMP

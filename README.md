@@ -15,3 +15,4 @@ Drag & drop the `GPOscar.crx` file into your extensions page in Chrome. I plan t
 * Better potential error handling
 * Unit tests?
 * Support for RMP
+* Logo for Chrome Extension

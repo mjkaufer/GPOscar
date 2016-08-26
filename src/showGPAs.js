@@ -1,34 +1,9 @@
-// var gtrmp = rmp("Georgia Institute of Technology")
-
 var maxGpa = 4
 var baseSaturation = .63
 var baseLightness = .42
 var endHue = 145/360
 var startHue = 6/360
 
-// var teacherElementMap = {//key of teacher last name to elements with teacher DOM points
-
-// }
-
-// var rmpMap = {
-
-// 	/*
-// 	teachername: {
-// 		dom element,
-// 		rank,
-// 		done: true/false
-// 	}
-
-// 	*/
-
-// }
-
-// var gpaRangeColors = {//if gpa is >= this number, set as this color
-// 	3.0: "#2ecc71",//green
-// 	2.5: "#f1c40f",//yellow
-// 	2.0: "#e67e22",//orange
-// 	0: "#e74c3c",//red
-// }
 
 function hslToRgb(h, s, l){// from http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
     var r, g, b;
@@ -90,14 +65,14 @@ if(document.getElementsByClassName('datadisplaytable')){
 		var ratio = gpa / maxGpa
 
 		var h = Math.pow(ratio, 2.5) * (endHue - startHue) + startHue//pow so we have more values closer to green/yellow and hopefully it looks prettier
-		// console.log(hslToRgb(h, baseSaturation, baseLightness))
+
 		return rgbToHex(hslToRgb(h, baseSaturation, baseLightness))
 
 	}
 
 	//https://oscar.gatech.edu/pls/bprod/bwskfcls.P_GetCrse
 
-	function addGPA(gpaMap){
+	function addGPA(gpaMap){//appends GPA to teacher elements
 
 		if(!document.getElementsByClassName('datadisplaytable'))
 			return
@@ -111,20 +86,9 @@ if(document.getElementsByClassName('datadisplaytable')){
 			
 			var teacherName = cleanTeacherName(rawTeacherName)
 
-			// teacherElementMap[teacherName] = teacherElementMap[teacherName] || []
-
-			// teacherElementMap[teacherName].push(teacherColumn)
-
 			teacherColumn.innerHTML += (gpaMap[teacherName]) ? " " + gpaToHTML(gpaMap[teacherName]) : ""
 		}
 
-		// console.log(teacherElementMap)
-
-		// for(var teacherName in teacherElementMap){
-		// 	gtrmp.get(teacherName, function(professor){
-		// 		console.log(professor)
-		// 	})
-		// }
 	}
 
 
@@ -153,9 +117,7 @@ if(document.getElementsByClassName('datadisplaytable')){
 
 				gpaMap[teacherName] = gpa
 
-
 			}
-
 
 			addGPA(gpaMap)
 

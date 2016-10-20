@@ -81,10 +81,11 @@ if(document.getElementsByClassName('datadisplaytable')){
 
 		for(var i = 2*2; i < tbody.childNodes.length; i+=2){
 
-			var teacherColumn = tbody.childNodes[i].childNodes[17*2 + 1]
+			var teacherColumn = tbody.childNodes[i].childNodes[16*2 + 1]
 			var rawTeacherName = teacherColumn.childNodes[0].nodeValue
-			
-			var teacherName = cleanTeacherName(rawTeacherName)
+			// console.log(rawTeacherName)
+			var teacherName = cleanOscarTeacherName(rawTeacherName)
+			// console.log(teacherName)
 
 			teacherColumn.innerHTML += (gpaMap[teacherName]) ? " " + gpaToHTML(gpaMap[teacherName]) : ""
 		}
@@ -109,8 +110,8 @@ if(document.getElementsByClassName('datadisplaytable')){
 				var tr = tbody.childNodes[i]
 				
 				var rawTeacherName = tr.childNodes[1].childNodes[0].textContent
-
-				var teacherName = cleanTeacherName(rawTeacherName)
+				console.log(rawTeacherName)
+				var teacherName = cleanCritiqueTeacherName(rawTeacherName)
 
 				var gpa = parseFloat(tr.childNodes[2*2+1].childNodes[0].textContent)
 
@@ -137,7 +138,13 @@ if(document.getElementsByClassName('datadisplaytable')){
 	}
 
 
-	function cleanTeacherName(rawTeacherName){
+	function cleanOscarTeacherName(rawTeacherName){
+		// return rawTeacherName.replace(/\,.*/gi,"").toUpperCase()//they changed the formatting on us
+		var splitName = rawTeacherName.split(" ");
+		return splitName[splitName.length - 2].toUpperCase()
+	}
+
+	function cleanCritiqueTeacherName(rawTeacherName){
 		return rawTeacherName.replace(/\,.*/gi,"").toUpperCase()
 	}
 

@@ -140,7 +140,7 @@ if(document.getElementsByClassName('datadisplaytable')){
 
 	function cleanOscarTeacherName(rawTeacherName){
 		// return rawTeacherName.replace(/\,.*/gi,"").toUpperCase()//they changed the formatting on us
-		var splitName = rawTeacherName.split(" ");
+		var splitName = rawTeacherName.split(/ */);
 		return splitName[splitName.length - 2].toUpperCase()
 	}
 

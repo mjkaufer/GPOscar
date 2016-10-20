@@ -110,7 +110,6 @@ if(document.getElementsByClassName('datadisplaytable')){
 				var tr = tbody.childNodes[i]
 				
 				var rawTeacherName = tr.childNodes[1].childNodes[0].textContent
-				console.log(rawTeacherName)
 				var teacherName = cleanCritiqueTeacherName(rawTeacherName)
 
 				var gpa = parseFloat(tr.childNodes[2*2+1].childNodes[0].textContent)
@@ -140,7 +139,11 @@ if(document.getElementsByClassName('datadisplaytable')){
 
 	function cleanOscarTeacherName(rawTeacherName){
 		// return rawTeacherName.replace(/\,.*/gi,"").toUpperCase()//they changed the formatting on us
-		var splitName = rawTeacherName.split(/ */);
+		if(!rawTeacherName)
+			return ""
+		console.log(rawTeacherName)
+		var splitName = rawTeacherName.replace(/\s\s+/gi," ").split(" ");
+		console.log(splitName)
 		return splitName[splitName.length - 2].toUpperCase()
 	}
 

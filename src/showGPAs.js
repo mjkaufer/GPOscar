@@ -60,7 +60,8 @@ if(document.getElementsByClassName('datadisplaytable')){
 	loadPage(courseName)
 
 	function getGpaColor(gpa){
-		gpa = gpa || 0
+		if(gpa === undefined)
+			gpa = 0
 
 		var ratio = gpa / maxGpa
 
